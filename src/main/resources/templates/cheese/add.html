@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<!--${} tells thymeleaf to look in model for value-->
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Title</title>
+</head>
+<body>
+    <h1 th:text="${title}"></h1>
+
+    <!--create form that will post data from user-->
+    <form method="post"> <!--leaving off action= will submit data to same location -->
+        <input type="text" name="cheeseName" />
+        <input type="submit" value="Add Cheese" />
+
+    </form>
+
+</body>
+</html>
