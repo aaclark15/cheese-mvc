@@ -1,0 +1,51 @@
+body {
+    font-family: Georgia, serif;
+}
+
+h1 {
+  width: 100%;
+  font-weight: 300;
+  text-align: center;
+	font-size: 45px;
+	color: #ffd700;
+}
+
+nav {
+  text-align: center;
+  display: block;
+  font-size: 20px;
+  font-weight: 200;
+  margin: 30px 20px;
+}
+
+table {
+  width: 75%;
+}
+
+th {
+  height: 50px;
+  text-align: center;
+  background-color: #fffacd;
+  font-size: 18px;
+}
+
+td {
+  height: 25px;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+
+label {
+  display: inline-block;
+  padding: 10px 0px;
+  font-size: 18px;
+  color: #ff4500;
+}
+
+#submit {
+  padding: 10px;
+  font-size: 15px;
+  background-color: #fffacd;
+}

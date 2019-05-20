@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 @Controller
@@ -17,7 +18,8 @@ public class CheeseController {
 
     //putting list outside of method makes it global
     //using arraylist for data is temp - goes away when server stops
-    static ArrayList<String> cheeses = new ArrayList<>(); //creates a new list
+    //static ArrayList<String> cheeses = new ArrayList<>(); //creates a new list
+    HashMap<String, String > cheeses = new HashMap<>();
 
     @RequestMapping(value = "")
     public String index(Model model) {
@@ -38,8 +40,9 @@ public class CheeseController {
     //create handler to process the form
     @RequestMapping(value = "add", method = RequestMethod.POST)
     //use @RequestParam as parameter to pull data from form - look for variable (needs to match form)
-    public String processAddCheeseForm(@RequestParam String cheeseName) {
-        cheeses.add(cheeseName);
+    public String processAddCheeseForm(@RequestParam String cheeseName, @RequestParam String description) {
+        cheeses.put(cheeseName, description);
+
         return "redirect:"; //redirect to /cheese (base path)
     }
 }

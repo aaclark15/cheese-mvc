@@ -2,17 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
 <!--${} tells thymeleaf to look in model for value-->
-<head>
-    <meta charset="UTF-8"/>
-    <title th:text="${title}">Title</title>
-</head>
+<head th:replace="fragments :: head"></head>
+
 <body>
     <h1 th:text="${title}"></h1>
+    <nav th:replace="fragments :: navigation"></nav>
 
     <!--create form that will post data from user-->
     <form method="post"> <!--leaving off action= will submit data to same location -->
-        <input type="text" name="cheeseName" />
-        <input type="submit" value="Add Cheese" />
+        <label for="name">Type of Cheese: </label>
+        <input type="text" id="name" name="cheeseName" />
+        <br />
+        <label for="desc">Description: </label>
+        <input type="text" id="desc" name="description" />
+        <br /> <br />
+        <input type="submit" value="Add Cheese" id="submit"/>
 
     </form>
 
