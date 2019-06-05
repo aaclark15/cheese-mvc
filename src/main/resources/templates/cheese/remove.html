@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<!--${} tells thymeleaf to look in model for value-->
+<head th:replace="fragments :: head"></head>
+
+<body>
+<h1 th:text="${title}"></h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<!-- th:unless is a conditional statement "if not" -->
+<p th:unless="${cheeses} and ${cheeses.size()}">No Cheese to Remove!</p>
+
+<form method="post">
+
+        <input type="checkbox" th:each="cheese : ${cheeses}" name= "cheeseList" th:text="${cheese.getName()}" th:value="${cheese.getName()}" /><br />
+        <input type="hidden" name="cheeseList" th:value="#{checkedID}" />
+        <input th:if="${cheeses.size()}" type="submit" value="Remove" />
+
+</form>
+
+</body>
+</html>
