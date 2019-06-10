@@ -4,18 +4,20 @@
 <!--${} tells thymeleaf to look in model for value-->
 <head th:replace="fragments :: head"></head>
 
-<body>
+<body class="container">
     <h1 th:text="${title}"></h1>
     <nav th:replace="fragments :: navigation"></nav>
 
     <!--create form that will post data from user-->
-    <form method="post"> <!--leaving off action= will submit data to same location -->
-        <label for="name">Type of Cheese: </label>
-        <input type="text" id="name" name="cheeseName" />
-        <br />
-        <label for="desc">Description: </label>
-        <input type="text" id="desc" name="description" />
-        <br /> <br />
+    <form method="post" style="max-width:600px;"> <!--leaving off action= will submit data to same location -->
+        <div class="form-group">
+            <label for="name">Type of Cheese: </label>
+            <input class="form-control" type="text" id="name" name="name" />
+        </div>
+        <div class="form-group">
+            <label for="desc">Description: </label>
+            <input class="form-control" type="text" id="desc" name="description" />
+        </div>
         <input type="submit" value="Add Cheese" id="submit"/>
 
     </form>

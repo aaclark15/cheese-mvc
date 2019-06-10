@@ -4,7 +4,8 @@
 <!--${} tells thymeleaf to look in model for value-->
 <head th:replace="fragments :: head"></head>
 
-<body>
+<body class="container">
+
 <h1 th:text="${title}"></h1>
 <nav th:replace="fragments :: navigation"></nav>
 
@@ -12,9 +13,15 @@
 <p th:unless="${cheeses} and ${cheeses.size()}">No Cheese to Remove!</p>
 
 <form method="post">
+        <div th:each="cheese : ${cheeses}" class="checkbox">
+                <input type="checkbox" name="cheeseIds" th:value="${cheese.cheeseId}" th:id="${cheese.cheeseId}" />
+                <label th:for="${cheese.cheeseId}" th:text="${cheese.name}"></label>
+                <br />
+        </div>
 
-        <input type="checkbox" th:each="cheese : ${cheeses}" name= "cheeseList" th:text="${cheese.getName()}" th:value="${cheese.getName()}" /><br />
-        <input type="hidden" name="cheeseList" th:value="#{checkedID}" />
+        <!--<input type="checkbox" th:each="cheese : ${cheeses}" name= "cheeseList" th:text="${cheese.getName()}" th:value="${cheese.getName()}" /><br />
+         <input type="hidden" name="cheeseIds" th:value="#{checkedID}" th:id="${checkedID}"/>-->
+
         <input th:if="${cheeses.size()}" type="submit" value="Remove" />
 
 </form>

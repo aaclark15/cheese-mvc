@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<!--${} tells thymeleaf to look in model for value-->
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+<h1 th:text="${title}"></h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<h2 th:text="${cheese.name}"></h2>
+
+<!--create form that will post data from user-->
+<form method="post" style="max-width:600px;"> <!--leaving off action= will submit data to same location -->
+    <div class="form-group">
+        <label for="name">Type of Cheese: </label>
+        <input class="form-control" type="text"
+               id="name" name="name" th:value="${cheese.name}"/>
+    </div>
+    <div class="form-group">
+        <label for="desc">Description: </label>
+        <input class="form-control" type="text"
+               id="desc" name="description" th:value="${cheese.description}" />
+    </div>
+    <div class="form-group">
+        <input type="hidden" name="cheeseId" th:value="${cheese.cheeseId}" />
+    </div>
+
+    <input type="submit" value="Edit Cheese" id="submit"/>
+
+</form>
+
+</body>
+</html>
