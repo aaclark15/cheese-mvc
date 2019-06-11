@@ -86,15 +86,15 @@ public class CheeseController {
         return "cheese/edit";
     }
 
-    @RequestMapping(value = "edit/{cheeseId}", method = RequestMethod.POST)
-    public String processEditForm(@PathVariable int cheeseId,
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    public String processEditForm(@RequestParam int cheeseId,
                                   @RequestParam String name, @RequestParam String description) {
 
         Cheese editCheese = CheeseData.getById(cheeseId);
         editCheese.setName(name);
         editCheese.setDescription(description);
 
-        return "redirect:/cheese" ;
+        return "redirect:" ;
 
     }
 }

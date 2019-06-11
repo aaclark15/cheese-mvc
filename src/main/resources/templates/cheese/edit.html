@@ -8,10 +8,10 @@
 <h1 th:text="${title}"></h1>
 <nav th:replace="fragments :: navigation"></nav>
 
-<h2 th:text="${cheese.name}"></h2>
+<h2 th:text="'Edit cheese: ' + ${cheese.name} + ' (ID: ' + ${cheese.cheeseId} +')'"></h2>
 
 <!--create form that will post data from user-->
-<form method="post" style="max-width:600px;"> <!--leaving off action= will submit data to same location -->
+<form method="post" style="max-width:600px;" action="/cheese/edit"> <!--leaving off action= will submit data to same location -->
     <div class="form-group">
         <label for="name">Type of Cheese: </label>
         <input class="form-control" type="text"

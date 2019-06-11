@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<!--says replace the head tag with what is named head in fragments file -->
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}"></h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+
+<form method="post">
+    <h2 th:text="'Welcome to Cheese, ' + ${name} + '!'"></h2>
+
+    </form>
+
+</body>
+</html>
